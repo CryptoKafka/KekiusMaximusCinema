@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kekius Cinema - Movies</title>
+  <!-- Google Font: Cinzel for an ancient Roman feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #000;
+      font-family: 'Cinzel', serif;
+      color: #FF0000;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    /* Banner Section */
+    .banner-section {
+      margin-bottom: 20px;
+    }
+    .banner {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      border: 2px solid #b22222;
+      border-radius: 10px;
+    }
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Menu Bar */
+    .menu-bar {
+      background-color: #333;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+    .menu-bar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+    .menu-bar li {
+      margin: 0 15px;
+    }
+    .menu-bar a {
+      color: #FF0000;
+      text-decoration: none;
+      font-size: 1.1em;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .menu-bar a:hover {
+      text-decoration: underline;
+    }
+    /* Movie Selection Menu */
+    .movie-select {
+      margin: 20px 0;
+      z-index: 4;
+      position: relative;
+    }
+    .movie-select label {
+      font-size: 1.2em;
+      margin-right: 10px;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .movie-select select {
+      font-size: 1.2em;
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 2px solid #FF0000;
+      background-color: #000;
+      color: #FF0000;
+    }
+    /* Video Container (Screen) */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border: 5px solid #b22222;
+      border-radius: 10px;
+      margin-top: 20px;
+      background-color: #000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    /* Closed Curtains Overlay */
+    .closed-curtains {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/ZriDWYY.jpg') center center / cover no-repeat;
+      z-index: 3;
+      opacity: 1;
+      transition: opacity 1s ease;
+      border-radius: 10px;
+      border: 5px solid #b22222;
+    }
+    .closed-curtains.fade-out {
+      opacity: 0;
+    }
+    /* Headings & Subtitle */
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+      color: #FF0000;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .subtitle {
+      margin: 10px 0 30px;
+      font-size: 1.2em;
+      color: #FF4500;
+      text-shadow: 0 0 5px #FF4500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Banner Section using your Imgur banner -->
+    <div class="banner-section">
+      <div class="banner">
+        <img src="https://i.imgur.com/ntkrVQJ.jpg" alt="Kekius Cinema Banner">
+      </div>
+    </div>
+    <!-- Menu Bar -->
+    <nav class="menu-bar">
+      <ul>
+        <li><a href="#">MAIN</a></li>
+        <li><a href="#">MOVIES</a></li>
+        <li><a href="#">KEKIUS COMMUNITY</a></li>
+      </ul>
+    </nav>
+    <!-- Movie Selection Menu -->
+    <div class="movie-select">
+      <label for="movieChoice">Choose Movie:</label>
+      <select id="movieChoice" onchange="openCurtains()">
+        <option value="">--Select--</option>
+        <option value="https://www.youtube.com/embed/wZihfRgd6pk">Movie 1</option>
+        <option value="https://www.youtube.com/embed/b-j3jVroZx4">Movie 2</option>
+        <option value="https://www.youtube.com/embed/XRzlPmL0AnU">Movie 3</option>
+      </select>
+    </div>
+    <!-- Video Container (Screen) with Closed Curtains -->
+    <div class="video-container" id="screen">
+      <!-- The YouTube video will load here once a movie is selected -->
+      <iframe id="videoFrame" src="" frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+      <!-- Closed Curtains Overlay -->
+      <div class="closed-curtains" id="closedCurtains"></div>
+    </div>
+  </div>
+  
+  <script>
+    function openCurtains() {
+      var select = document.getElementById("movieChoice");
+      var videoFrame = document.getElementById("videoFrame");
+      var closedCurtains = document.getElementById("closedCurtains");
+      
+      var videoURL = select.value;
+      
+      if (videoURL) {
+        // Set the iframe source to the selected movie URL
+        videoFrame.src = videoURL;
+        // Fade out the closed curtains overlay
+        closedCurtains.classList.add("fade-out");
+        // Remove the overlay after the transition (1 second)
+        setTimeout(function() {
+          closedCurtains.style.display = "none";
+        }, 1000);
+      }
+    }
+  </script>
+</body>
+</html>

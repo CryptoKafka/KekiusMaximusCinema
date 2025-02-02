@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kekius Cinema - Kekius Community</title>
+  <!-- Google Font: Cinzel for an ancient Roman feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #000; /* Black background */
+      font-family: 'Cinzel', serif;
+      color: #FF0000; /* Bright red text */
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    /* Banner Section */
+    .banner-section {
+      margin-bottom: 20px;
+    }
+    .banner {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      border: 2px solid #b22222;
+      border-radius: 10px;
+    }
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Menu Bar */
+    .menu-bar {
+      background-color: #333;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+    .menu-bar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+    .menu-bar li {
+      margin: 0 15px;
+    }
+    .menu-bar a {
+      color: #FF0000;
+      text-decoration: none;
+      font-size: 1.1em;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .menu-bar a:hover {
+      text-decoration: underline;
+    }
+    /* Contract Address Section */
+    .contract-section {
+      margin: 20px 0;
+    }
+    .contract-heading {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .contract-address {
+      font-size: 1.2em;
+      padding: 10px 15px;
+      border: 2px solid #b22222;
+      border-radius: 5px;
+      display: inline-block;
+      cursor: pointer;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .contract-address:hover {
+      background-color: #8b1a1a;
+    }
+    /* Community Links Section */
+    .links-heading {
+      font-size: 2em;
+      margin: 20px 0;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .links-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .link-card {
+      border: 2px solid #b22222;
+      border-radius: 10px;
+      background-color: #111;
+      padding: 20px;
+      width: 250px;
+      transition: transform 0.3s;
+    }
+    .link-card:hover {
+      transform: scale(1.05);
+    }
+    .link-card a {
+      color: #FF0000;
+      text-decoration: none;
+      font-size: 1.2em;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .link-card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Banner Section with your Imgur image -->
+    <div class="banner-section">
+      <div class="banner">
+        <img src="https://i.imgur.com/ntkrVQJ.jpg" alt="Kekius Cinema Banner">
+      </div>
+    </div>
+    <!-- Menu Bar -->
+    <nav class="menu-bar">
+      <ul>
+        <li><a href="#">MAIN</a></li>
+        <li><a href="#">MOVIES</a></li>
+        <li><a href="#">KEKIUS COMMUNITY</a></li>
+      </ul>
+    </nav>
+    <!-- Contract Address Section -->
+    <div class="contract-section">
+      <div class="contract-heading">Contract Address:</div>
+      <div class="contract-address" id="contractAddress" title="Copy Address">
+        0x26e550ac11b26f78a04489d5f20f24e3559f7dd9
+      </div>
+    </div>
+    <!-- Community Links Section -->
+    <h1 class="links-heading">Kekius Community</h1>
+    <div class="links-container">
+      <div class="link-card">
+        <a href="https://kekiusmaximus.vip" target="_blank">Community Website</a>
+      </div>
+      <div class="link-card">
+        <a href="https://x.com/KekiusMaxi" target="_blank">Original X Page</a>
+      </div>
+      <div class="link-card">
+        <a href="https://x.com/KekiusCto" target="_blank">CTO X Page</a>
+      </div>
+      <div class="link-card">
+        <a href="https://t.me/KekiusMaximusOnEthportal" target="_blank">Telegram</a>
+      </div>
+      <div class="link-card">
+        <a href="https://www.coingecko.com/en/coins/kekius-maximus" target="_blank">Coingecko</a>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // JavaScript to handle copying the contract address to clipboard
+    document.getElementById('contractAddress').addEventListener('click', function() {
+      const address = this.innerText;
+      navigator.clipboard.writeText(address)
+        .then(() => {
+          this.innerText = "Copied!";
+          setTimeout(() => {
+            this.innerText = address;
+          }, 2000);
+        })
+        .catch(err => {
+          console.error('Failed to copy address: ', err);
+        });
+    });
+  </script>
+</body>
+</html>

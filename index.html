@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kekius Cinema - Main Page</title>
+  <!-- Google Font: Cinzel for an ancient Roman feel -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <style>
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #000; /* Black background */
+      font-family: 'Cinzel', serif;
+      color: #FF0000; /* Bright red text */
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    /* Banner Section */
+    .banner-section {
+      margin-bottom: 20px;
+    }
+    .banner {
+      width: 100%;
+      height: 150px;
+      overflow: hidden;
+      border: 2px solid #b22222;
+      border-radius: 10px;
+    }
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Menu Bar */
+    .menu-bar {
+      background-color: #333;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+    .menu-bar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+    .menu-bar li {
+      margin: 0 15px;
+    }
+    .menu-bar a {
+      color: #FF0000;
+      text-decoration: none;
+      font-size: 1.1em;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .menu-bar a:hover {
+      text-decoration: underline;
+    }
+    /* Video Section */
+    .video-section {
+      position: relative;
+      margin: 20px 0;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border: 5px solid #b22222;
+      border-radius: 10px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    /* Torch Placeholders on the Sides */
+    .torch {
+      width: 80px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .torch.left {
+      left: -100px;
+    }
+    .torch.right {
+      right: -100px;
+    }
+    /* Headings & Subtitle */
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+      color: #FF0000;
+      text-shadow: 0 0 5px #FF0000;
+    }
+    .subtitle {
+      margin: 10px 0 30px;
+      font-size: 1.2em;
+      color: #FF4500;
+      text-shadow: 0 0 5px #FF4500;
+    }
+    /* Milestones Section */
+    .milestones {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center each milestone box */
+      margin-top: 30px;
+    }
+    .milestone {
+      width: 100%;
+      max-width: 500px;
+      margin: 20px 0;
+      padding: 15px;
+      border: 2px solid #b22222;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .milestone-title {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 8px 16px;
+      background-color: #b22222;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .btn:hover {
+      background-color: #8b1a1a;
+    }
+    /* Wallet Buttons Container */
+    .wallet-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Banner Section with your Imgur image -->
+    <div class="banner-section">
+      <div class="banner">
+        <img src="https://i.imgur.com/ntkrVQJ.jpg" alt="Kekius Cinema Banner">
+      </div>
+    </div>
+    <!-- Menu Bar -->
+    <nav class="menu-bar">
+      <ul>
+        <li><a href="#">MAIN</a></li>
+        <li><a href="#">MOVIES</a></li>
+        <li><a href="#">KEKIUS COMMUNITY</a></li>
+      </ul>
+    </nav>
+    <!-- Video Section with Torch Placeholders -->
+    <div class="video-section">
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/7kcLsSKUt44" frameborder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+        <img src="https://via.placeholder.com/80?text=Torch" alt="Left Torch" class="torch left">
+        <img src="https://via.placeholder.com/80?text=Torch" alt="Right Torch" class="torch right">
+      </div>
+    </div>
+    <!-- Milestones Section -->
+    <h1>NEW MOVIE MILESTONES</h1>
+    <p class="subtitle">When these goals are completed, a new Kekius movie shall be made.</p>
+    <div class="milestones">
+      <!-- Milestone 1: Filmmaker Wallet (moved to the top) -->
+      <div class="milestone">
+        <div class="milestone-title">When this Filmmaker Wallet has 1,000,000 $Kekius Tokens</div>
+        <div class="wallet-buttons">
+          <button class="btn wallet-btn" data-wallet="0x5Ff0f8dC58cd72862e032B3a3BC560607AD86eaC">Copy Address</button>
+          <a href="https://etherscan.io/address/0x5ff0f8dc58cd72862e032b3a3bc560607ad86eac#tokentxns" class="btn" target="_blank">View Status</a>
+        </div>
+      </div>
+      <!-- Milestone 2: X Account 15k followers -->
+      <div class="milestone">
+        <div class="milestone-title">When the X Account gets 15,000 followers</div>
+        <a href="https://x.com/KekiusMaxi" class="btn" target="_blank">View Status</a>
+      </div>
+      <!-- Milestone 3: Video 100k views -->
+      <div class="milestone">
+        <div class="milestone-title">When This Video Gets 100,000 views</div>
+        <a href="https://x.com/KekiusCto/status/1884810207831654460" class="btn" target="_blank">View Status</a>
+      </div>
+      <!-- Milestone 4: Marking Wallet -->
+      <div class="milestone">
+        <div class="milestone-title">When the Marking Wallet Has $100,000</div>
+        <div class="wallet-buttons">
+          <button class="btn wallet-btn" data-wallet="0x889f3b8441AFcCB0AE18615b2621CA4ED7b58185">Copy Address</button>
+          <a href="https://etherscan.io/address/0x889f3b8441afccb0ae18615b2621ca4ed7b58185" class="btn" target="_blank">View Status</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // JavaScript to handle wallet button clicks and copy the wallet address to clipboard
+    document.querySelectorAll('.wallet-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const walletAddress = btn.getAttribute('data-wallet');
+        navigator.clipboard.writeText(walletAddress)
+          .then(() => {
+            btn.innerText = "Copied!";
+            setTimeout(() => {
+              btn.innerText = "Copy Address";
+            }, 2000);
+          })
+          .catch(err => {
+            console.error('Failed to copy text: ', err);
+          });
+      });
+    });
+  </script>
+</body>
+</html>
