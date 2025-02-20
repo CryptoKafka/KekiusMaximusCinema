@@ -149,6 +149,11 @@
     .btn:hover {
       background-color: #8b1a1a;
     }
+    /* Bigger Donate Button */
+    .donate-btn {
+      font-size: 1.5em;
+      padding: 16px 32px;
+    }
     /* Wallet Buttons Container */
     .wallet-buttons {
       display: flex;
@@ -285,7 +290,7 @@
         const walletAddress = btn.getAttribute('data-wallet');
         navigator.clipboard.writeText(walletAddress)
           .then(() => {
-            btn.innerText = "Copied!";
+            btn.innerText = "Ethereum Address Copied";
             setTimeout(() => {
               btn.innerText = "DONATE HERE";
             }, 2000);
