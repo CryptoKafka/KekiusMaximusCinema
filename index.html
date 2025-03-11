@@ -113,26 +113,6 @@
       color: #FF4500;
       text-shadow: 0 0 5px #FF4500;
     }
-    /* Milestones Section */
-    .milestones {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 30px;
-    }
-    .milestone {
-      width: 100%;
-      max-width: 500px;
-      margin: 20px 0;
-      padding: 15px;
-      border: 2px solid #b22222;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .milestone-title {
-      font-size: 1.2em;
-      margin-bottom: 10px;
-    }
     /* Button Styles */
     .btn {
       display: inline-block;
@@ -154,7 +134,7 @@
       font-size: 1.5em;
       padding: 16px 32px;
     }
-    /* Wallet Buttons Container */
+    /* Wallet Buttons Container (unused after removal) */
     .wallet-buttons {
       display: flex;
       justify-content: center;
@@ -233,57 +213,8 @@
         <img src="https://via.placeholder.com/80?text=Torch" alt="Right Torch" class="torch right">
       </div>
     </div>
-    <!-- Milestones Section -->
-    <h1>NEW MOVIE MILESTONES</h1>
-    <p class="subtitle">Four more Movies are planned. A new Kekius movie shall be made for each completed milestone!</p>
-    <p class="subtitle">(Note: milestones need not be completed in any order or by any time limit)</p>
-    <div class="milestones">
-      <!-- Milestone 1: Filmmaker Wallet (Updated) -->
-      <div class="milestone">
-        <div class="milestone-title">When this Filmmaker Wallet has 250,000 Kekius Tokens</div>
-        <div class="wallet-buttons">
-          <button class="btn wallet-btn" data-wallet="0x5Ff0f8dC58cd72862e032B3a3BC560607AD86eaC">Copy Address</button>
-          <a href="https://etherscan.io/address/0x5ff0f8dc58cd72862e032b3a3bc560607ad86eac#tokentxns" class="btn" target="_blank">View Status</a>
-        </div>
-      </div>
-      <!-- Milestone 2: X Account 15k followers -->
-      <div class="milestone">
-        <div class="milestone-title">When the X Account gets 15,000 followers</div>
-        <a href="https://x.com/KekiusMaxi" class="btn" target="_blank">View Status</a>
-      </div>
-      <!-- Milestone 3: Video 100k views -->
-      <div class="milestone">
-        <div class="milestone-title">When This Video Gets 100,000 views</div>
-        <a href="https://x.com/KekiusMaxi/status/1885518992384647431" class="btn" target="_blank">View Status</a>
-      </div>
-      <!-- Milestone 4: Marketing Wallet -->
-      <div class="milestone">
-        <div class="milestone-title">When the Marketing Wallet Has $100,000</div>
-        <div class="wallet-buttons">
-          <button class="btn wallet-btn" data-wallet="0x889f3b8441AFcCB0AE18615b2621CA4ED7b58185">Copy Address</button>
-          <a href="https://etherscan.io/address/0x889f3b8441afccb0ae18615b2621ca4ed7b58185" class="btn" target="_blank">View Status</a>
-        </div>
-      </div>
-    </div>
   </div>
   <script>
-    // Handle wallet button clicks to copy addresses
-    document.querySelectorAll('.wallet-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        const walletAddress = btn.getAttribute('data-wallet');
-        navigator.clipboard.writeText(walletAddress)
-          .then(() => {
-            btn.innerText = "Copied!";
-            setTimeout(() => {
-              btn.innerText = "Copy Address";
-            }, 2000);
-          })
-          .catch(err => {
-            console.error('Failed to copy text: ', err);
-          });
-      });
-    });
-    
     // Handle donate button clicks to copy the donation ETH address
     document.querySelectorAll('.donate-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
